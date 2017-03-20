@@ -32,8 +32,8 @@ def makeWebhookResult(req):
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    components = parameters.get("components")
-    number = parameters.get("number")
+    components = parameters.get("Components")
+    number = parameters.get("Number")
 
     stock = {'Beaglebone':0, 'Raspberry Pi':2, 'Arduino Uno':4}
 
