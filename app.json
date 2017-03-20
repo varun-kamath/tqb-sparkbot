@@ -2,5 +2,6 @@
   "name": "API.AI Search Components Webhook",
   "description": "API.AI Search Components Webhook Sapmple",
   "repository": "https://github.com/varun-kamath/tqb-sparkbot",
+  "logo": "http://xvir.github.io/img/apiai.png",
   "keywords": ["api.ai", "natural language"]
 }
