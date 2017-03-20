@@ -28,7 +28,8 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "search.components":
+    speech = "test"
+"""    if req.get("result").get("action") != "search.components":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
@@ -43,7 +44,7 @@ def makeWebhookResult(req):
         speech = "We only have " + str(stock[components]) + " " + components + " in stock. Do you want to place a request for the same?"
     else
         speech = "I'm sorry we do are out of " + components + ". Contact Lab Admin for Further Queries"
-
+"""
     print("Response:")
     print(speech)
 
