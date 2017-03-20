@@ -28,15 +28,21 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "search.components":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
+    components = parameters.get("components")
+    number = parameters.get("number")
 
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    stock = {'Beaglebone':0, 'Raspberry Pi':2, 'Arduino Uno':4}
 
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+    if number >= stock[component]:
+        speech = "Yes we have " + number + " " + components + " in stock. Do you want to place a request?"
+    elif number > 0
+        speech = "We only have " + str(stock[components]) + " " + components + " in stock. Do you want to place a request for the same?"
+    else
+        speech = "I'm sorry we do are out of " + components + ". Contact Lab Admin for Further Queries"
 
     print("Response:")
     print(speech)
@@ -46,7 +52,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
+        "source": "varun-kamath/tqb-sparkbot"
     }
 
 
