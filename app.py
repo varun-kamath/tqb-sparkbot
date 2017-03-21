@@ -45,6 +45,18 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
+    query = data.get('query')
+    if query is None:
+        return {}
+
+    result = query.get('results')
+    if result is None:
+        return {}
+
+    channel = result.get('channel')
+    if channel is None:
+        return {}
+    
     speech = "test"
     
     print("Response:")
@@ -55,7 +67,7 @@ def makeWebhookResult(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "tqb-sparkbot"
     }
 
 
