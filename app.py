@@ -36,18 +36,9 @@ def webhook():
 
 
 def makeWebhookResult(req):
-    if req.get("result").get("metadata").get("intentName") != "searchComponents":
-        return {}
-    
-    components = req.get("result").get("parameters").get("components")
-    speech = "test blah blah blah " + components
-    
-    print("Response:")
-    print(speech)
-
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": "blah blah blah",
+        "displayText": "blah blah blah",
         # "data": data,
         # "contextOut": [],
         "source": "tqb-sparkbot"
