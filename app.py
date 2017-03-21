@@ -36,10 +36,11 @@ def webhook():
 
 
 def makeWebhookResult(req):
-    if req.get("result").get("intent") != "searchComponents":
+    if req.get("result").get("metadata").get("intentName") != "searchComponents":
         return {}
     
-    speech = "test blah blah blah"
+    components = req.get("result").get("parameters").get("components")
+    speech = "test blah blah blah " + components
     
     print("Response:")
     print(speech)
