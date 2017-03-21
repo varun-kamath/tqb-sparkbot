@@ -28,9 +28,11 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    speech = "test"
-"""    if req.get("result").get("action") != "search.components":
+    if req.get("result").get("action") != "search.components":
         return {}
+    else
+        speech = "test"
+    """
     result = req.get("result")
     parameters = result.get("parameters")
     components = parameters.get("Components")
