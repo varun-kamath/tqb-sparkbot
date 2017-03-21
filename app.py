@@ -36,8 +36,15 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "search.components":
+    if req.get("result").get("action") != "searchComponents":
         return {}
+    
+    data = json.loads(result)
+    res = makeWebhookResult(data)
+    return res
+
+
+def makeWebhookResult(data):
     speech = "test"
     
     print("Response:")
