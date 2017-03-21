@@ -26,7 +26,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    res = makeWebhookResult(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -35,29 +35,11 @@ def webhook():
     return r
 
 
-def processRequest(req):
-    if req.get("result").get("action") != "searchComponents":
+def makeWebhookResult(req):
+    if req.get("result").get("intent") != "searchComponents":
         return {}
     
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res
-
-
-def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
-
-    result = query.get('results')
-    if result is None:
-        return {}
-
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-    
-    speech = "test"
+    speech = "test blah blah blah"
     
     print("Response:")
     print(speech)
