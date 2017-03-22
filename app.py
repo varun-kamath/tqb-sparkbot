@@ -42,14 +42,14 @@ def makeWebhookResult(req):
     
     stock = {'a':3, 'b':5, 'c':2, 'd':8, 'e':6}
     
-    available = stock(components)
+    available = stock[components]
     
     speech = "test"
     
     if number < available:
         speech = speech + "yes we have " + number + " " + components
-    #else:
-    #    speech = "no we dont have " + number + " " + components
+    else:
+        speech = "no we dont have " + number + " " + components
 
     speech = speech + " test"
     
