@@ -44,7 +44,7 @@ def makeWebhookResult(req):
     stock ={'abc':5, 'def':5, 'ghi':5, 'jkl':5, 'mno':5}
     
     if int(number) < stock[components]:
-        speech = speech + "yes we have " + number + " " + components + " "
+        speech = "yes we have " + number + " " + components + " "
     else:
         speech = "no we dont have " + number + " " + components
     
