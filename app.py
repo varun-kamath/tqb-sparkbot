@@ -43,12 +43,12 @@ def makeWebhookResult(req):
     
     stock ={'abc':5, 'xyz':5, 'ghi':5, 'uvw':5, 'mno':5, 'pqr':5}
     
-    if int(number) <= stock[components] and int(number) > 0:
-        speech = "yes we have " + number + " " + components + " . Should i register a request?"
-    elif int(number) > stock[components] and int(number) > 0:
-        speech = "we only have " + stock[components] + " " + components + " . Should i register a request for the same?"
-    elif int(number) <= 0:
+    if int(number) <= 0:
         speech = "my donkey has a better sense of humour than you"
+    elif int(number) <= stock[components]:
+        speech = "yes we have " + number + " " + components + " . Should i register a request?"
+    else:
+        speech = "we only have " + str(stock[components]) + " " + components + " . Should i register a request for the same?"
     
     print("Response:")
     print(speech)
