@@ -41,7 +41,7 @@ def makeWebhookResult(req):
     components = req.get("result").get("parameters").get("components")
     number =  req.get("result").get("parameters").get("number")
     
-    stock ={"abc":5, "def":5, "ghi":5, "jkl":5, "mno":5}
+    stock ={'abc':5, 'xyz':5, 'ghi':5, 'uvw':5, 'mno':5, 'pqr':5}
     
     if int(number) <= stock[components] and int(number) > 0:
         speech = "yes we have " + number + " " + components + " . Should i register a request?"
