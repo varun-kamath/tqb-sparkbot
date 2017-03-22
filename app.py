@@ -69,14 +69,10 @@ def makeWebhookResult(data):
     channel = result.get('channel')
     if channel is None:
         return {}
-    
-    location = channel.get('location')
-    if (location is None):
-        return {}
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": "
+    speech = "Today in "
 
     print("Response:")
     print(speech)
