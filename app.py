@@ -58,20 +58,6 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
-
-    result = query.get('results')
-    if result is None:
-        return {}
-
-    channel = result.get('channel')
-    if channel is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
     speech = "Today in "
 
     print("Response:")
