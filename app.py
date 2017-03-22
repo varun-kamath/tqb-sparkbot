@@ -60,6 +60,7 @@ def makeYqlQuery(req):
 def makeWebhookResult(data):
     query = data.get('query')
     if query is None:
+        
         return {}
 
     result = query.get('results')
@@ -91,7 +92,7 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"slack": slack_message, "facebook": facebook_message},
+        #"data": {"slack": slack_message, "facebook": facebook_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
