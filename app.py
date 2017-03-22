@@ -42,10 +42,10 @@ def makeWebhookResult(req):
     
     stock = {'a':3, 'b':5, 'c':2, 'd':8, 'e':6}
     
-    if stock[components] >= number:
-        speech = "yes we have " + number + " " + components
-    elif stock[components] < number:
-        speech = "no we dont have " + number + " " + components
+    #if stock[components] >= number:
+        speech = "yes we have " + number + " " + components + " " + str(stock[components])
+    #elif stock[components] < number:
+     #   speech = "no we dont have " + number + " " + components
 
     print("Response:")
     print(speech)
