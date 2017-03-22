@@ -39,7 +39,13 @@ def processRequest(req):
 def makeWebhookResult(req):
     components = req.get("result").get("parameters").get("components")
     number =  req.get("result").get("parameters").get("number")
-    speech = "check " + number + " " + components 
+    
+    stock = {'a':3, 'b':5, 'c':2, 'd':8, 'e':6}
+    
+    if stock[components] >= number:
+        speech = "yes we have" + number + " " + components
+    else
+        speech = "no we dont have" + number + " " + components
 
     print("Response:")
     print(speech)
