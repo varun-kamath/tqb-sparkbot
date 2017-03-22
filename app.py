@@ -42,12 +42,14 @@ def makeWebhookResult(req):
     
     stock = {'a':3, 'b':5, 'c':2, 'd':8, 'e':6}
     
+    available = stock(components)
+    
     speech = "test"
     
-    if int(str(stock[components])) > number:
+    if number < available:
         speech = speech + "yes we have " + number + " " + components
-    #elif int(stock[components]) < number:
-    #    speech = "no we dont have " + number + " " + components
+    else
+        speech = "no we dont have " + number + " " + components
 
     speech = speech + " test"
     
@@ -59,7 +61,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {"slack": slack_message, "facebook": facebook_message},
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "tqb-sparkbot"
     }
 
 
