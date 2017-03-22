@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import math
 
 from flask import Flask
 from flask import request
@@ -45,13 +46,15 @@ def makeWebhookResult(req):
     c = str(stock[components])    
     available = int(c)
     
-    speech = "test"
+    num = 10 + stock[components]
+    check = math.isnan(stock[components])
+    speech = "test " + check + " " + str(num)
     
     if number < available:
         speech = speech + "yes we have " + number + " " + components
     #if number > available:
     #    speech = "no we dont have " + number + " " + components
-
+    
     speech = speech + " test"
     
     print("Response:")
