@@ -29,7 +29,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") != "search":
         return {}
 
     res = makeWebhookResult(req)
@@ -37,7 +37,7 @@ def processRequest(req):
 
 
 def makeWebhookResult(req):
-    speech = "Today in "
+    speech = "check"
 
     print("Response:")
     print(speech)
