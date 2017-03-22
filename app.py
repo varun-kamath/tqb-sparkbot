@@ -41,9 +41,8 @@ def makeWebhookResult(req):
     components = req.get("result").get("parameters").get("components")
     number =  req.get("result").get("parameters").get("number")
     
-    stock = {"abc":3, "":5, "c":2, "d":8, "e":6}
+    stock = {"abc":3, "def":5, "ghi":2, "jkl":8, "mno":6}
     
-    #check = math.isnan(stock[components])
     speech = "test "
     
     #if number < stock[components]:
