@@ -43,12 +43,8 @@ def makeWebhookResult(req):
     
     stock = {'a':3, 'b':5, 'c':2, 'd':8, 'e':6}
     
-    c = str(stock[components])    
-    available = int(c)
-    
-    num = 10 + stock[components]
     check = math.isnan(stock[components])
-    speech = "test " + check + " " + str(num)
+    speech = "test " + check 
     
     if number < available:
         speech = speech + "yes we have " + number + " " + components
