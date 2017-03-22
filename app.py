@@ -48,7 +48,7 @@ def makeWebhookResult(req):
     
     if number < available:
         speech = speech + "yes we have " + number + " " + components
-    else:
+    if number > available:
         speech = "no we dont have " + number + " " + components
 
     speech = speech + " test"
