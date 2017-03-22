@@ -38,7 +38,8 @@ def processRequest(req):
 
 def makeWebhookResult(req):
     components = req.get("result").get("parameters").get("components")
-    speech = "check" + components
+    number =  req.get("result").get("parameters").get("number")
+    speech = "check " + number + " " + components 
 
     print("Response:")
     print(speech)
