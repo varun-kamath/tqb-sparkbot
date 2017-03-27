@@ -45,11 +45,11 @@ def makeWebhookResult(req):
     
     if int(number) <= 0:
         speech = "that's beyond my capabilities"
-    elif stock[components] = 0:
+    elif stock[components] == 0:
         speech = "We are out of " + components + "(s). Please contact lab admin for further queries."
     elif int(number) <= stock[components]:
         speech = "yes we have " + number + " " + components + "(s) . Should i register a request?"
-    else:
+    elif int(number) > stock[components]:
         speech = "we only have " + str(stock[components]) + " " + components + "(s) . Should i register a request for the same?"
     
     print("Response:")
