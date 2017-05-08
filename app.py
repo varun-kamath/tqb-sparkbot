@@ -30,14 +30,16 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "search":
+    if req.get("result").get("action") = "search":
+        res = makeWebhookResult1(req)
+        return res
+    elif req.get("result").get("action") = "RequestAdmin":
+        res = makeWebhookResult2(req)
+        return res
+    else:
         return {}
 
-    res = makeWebhookResult(req)
-    return res
-
-
-def makeWebhookResult(req):
+def makeWebhookResult1(req):
     components = req.get("result").get("parameters").get("components")
     number =  req.get("result").get("parameters").get("number")
     
@@ -63,6 +65,13 @@ def makeWebhookResult(req):
         "source": "tqb-sparkbot"
     }
 
+def makeWebhookResult2(req):
+    ACCESS_TOKEN = 'M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4'
+    resp = requests.post(url='https://api.ciscospark.com/v1/messages',
+                     headers={'Authorization': 'Bearer ' + ACCESS_TOKEN},
+                     data={'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vMDQ4NDMwNDUtMmYyMC0zYmZlLTlkY2QtMWZlYTg4MzQzYzVm',
+                           'text': 'Hello StackOverflow'})
+    return resp
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
