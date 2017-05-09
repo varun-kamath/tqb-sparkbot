@@ -31,8 +31,7 @@ def webhook():
 
 
 def processRequest(req):
-    action = req.get("result").get("action")
-    if action != "search" or action != "RequestAdmin" :
+    if req.get("result").get("action") != "search" #or action != "RequestAdmin" :
         return {}
         
     res = makeWebhookResult(req)
@@ -64,9 +63,6 @@ def makeWebhookResult(req):
         # "contextOut": [],
         "source": "tqb-sparkbot"
     }
-
-
-
 
 
 if __name__ == '__main__':
