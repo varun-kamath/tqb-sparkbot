@@ -31,10 +31,10 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") = "search":
+    if req.get("result").get("action") == "search":
         res = makeWebhookResult1(req)
         return res
-    elif req.get("result").get("action") = "RequestAdmin":
+    elif req.get("result").get("action") == "RequestAdmin":
         makeWebhookResult2(req)
         return {}
     else:
@@ -77,6 +77,6 @@ def makeWebhookResult2(req):
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
-    print "Starting app on port %d" % port
+ #   print "Starting app on port %d" %port
 
     app.run(debug=False, port=port, host='0.0.0.0')
