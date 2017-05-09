@@ -39,7 +39,7 @@ def processRequest(req):
     return res
         
 
-def makeWebhookResult1(req):
+def makeWebhookResult(req):
     components = req.get("result").get("parameters").get("components")
     number =  req.get("result").get("parameters").get("number")
     
