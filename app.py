@@ -31,7 +31,8 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "search" and "RequestAdmin" :
+    action = req.get("result").get("action")
+    if action != "search" and "RequestAdmin" :
         return {}
         
     res = makeWebhookResult(req)
@@ -39,10 +40,10 @@ def processRequest(req):
         
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") == "search" :
+    if action == "search" :
         res = makeWebhookResult1(req)
-    else:
-        res = makeWebhookResult2(req)
+  #  else:
+   #     res = makeWebhookResult2(req)
     
     return res
     
@@ -74,24 +75,7 @@ def makeWebhookResult1(req):
     }
 
 
-def makeWebhookResult2(req):
-    ACCESS_TOKEN = 'M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4'
-    headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN}
-    data = {'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vMDQ4NDMwNDUtMmYyMC0zYmZlLTlkY2QtMWZlYTg4MzQzYzVm',
-                           'text': 'Hello StackOverflow'}
-    resp = requests.post(url='https://api.ciscospark.com/v1/messages', data=data, headers=headers)
-    
-    speech = "Good Joke."
-     print("Response:")
-    print(speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        #"data": {"slack": slack_message, "facebook": facebook_message},
-        # "contextOut": [],
-        "source": "tqb-sparkbot"
-    }
 
 
 if __name__ == '__main__':
