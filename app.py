@@ -35,7 +35,6 @@ def webhook():
 def processRequest(req):
     	if req.get("result").get("action") != "search" and req.get("result").get("action") != "RequestAdmin":
         	return {}
-    
     	res = makeWebhookResult(req)
     	return res
 
@@ -64,18 +63,13 @@ def makeWebhookResult(req):
             # "contextOut": [],
             		"source": "tqb-sparkbot"
         	}
+	
     	else:
-        #Get PERSON NAME
-        #GOTO ROOM OF ADMIN
-        #SEND MESSAGE\
 		ACCESS_TOKEN = "NjNkNmM2Y2MtZDc5Zi00MjFhLWIwMzAtMDE3NDRmZmFiZjFiZmFiMDk0ZmQtMWQ2"
         	url = "https://api.ciscospark.com/v1/messages"
         	headers = {"Authorization": "Bearer " + ACCESS_TOKEN, "Content-Type": "application/json"}
         	data = {"toPersonEmail": "varun.kamath@yahoo.com", "text": "TEST MESSAGE"}
         	resp = requests.post(url=url, data=data, headers=headers)
-		message_dict = json.loads(resp.text)
-		print(str(resp.status_code))
-		
 		return {}
 
 
