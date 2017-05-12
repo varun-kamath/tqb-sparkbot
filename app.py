@@ -23,12 +23,12 @@ def webhook():
     	print("Request:")
     	print(json.dumps(req, indent=4))
         
-        return {
+        res = {
             		"speech": req.get("result").get("action"),
             		"displayText": req.get("result").get("action"),
             		"source": "tqb-sparkbot"
         	}
-    	res = processRequest(req)
+    #	res = processRequest(req)
 
     	res = json.dumps(res, indent=4)
     # print(res)
