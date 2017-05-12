@@ -50,7 +50,7 @@ def makeWebhookResult(req):
         	elif stock[components] == 0:
             		speech = "We are out of " + components + "(s). Please contact lab admin for further queries."
         	elif int(number) <= stock[components]:
-           		speech = "yes we have " + number + " " + components + "(s) . Should i register a request?" + sessionid
+           		speech = "yes we have " + number + " " + components + "(s) . Should i register a request?"
         	elif int(number) > stock[components]:
             		speech = "we only have " + str(stock[components]) + " " + components + "(s) . Should i register a request for the same?"
     		print("Response:")
@@ -68,7 +68,10 @@ def makeWebhookResult(req):
 		ACCESS_TOKEN = "NjNkNmM2Y2MtZDc5Zi00MjFhLWIwMzAtMDE3NDRmZmFiZjFiZmFiMDk0ZmQtMWQ2"
         	url = "https://api.ciscospark.com/v1/messages"
         	headers = {"Authorization": "Bearer " + ACCESS_TOKEN, "Content-Type": "application/json"}
-        	data = {"toPersonEmail": "varun.kamath@yahoo.com", "text": "TEST MESSAGE"}
+        	data = {
+			"toPersonId": "M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4", 
+			"text": "Varun Kamath has requested for " + number + " " + components + "(s). Would you like to accept the request?"
+			}
         	resp = requests.post(url=url, data=data, headers=headers)
 		return {}
 
