@@ -72,7 +72,7 @@ def makeWebhookResult(req):
         #GOTO ROOM OF ADMIN
         #SEND MESSAGE
         return {
-	        "event": {
+	        "followupEvent": {
 		        "name": "custom_event",
 		        "data": {
 			        "Component": "Node MCU",
