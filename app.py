@@ -26,9 +26,7 @@ def webhook():
         return {
             		"speech": req.get("result").get("action"),
 			"outcontext": "RequestAdmin"
-            		"displayText": speech,
-            #"data": {"slack": slack_message, "facebook": facebook_message},
-            # "contextOut": [],
+            		"displayText": req.get("result").get("action"),
             		"source": "tqb-sparkbot"
         	}
     	res = processRequest(req)
