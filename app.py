@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
 import urllib
-#import requests
+import requests
 import json
 import os
 import math
 import datetime
+import ntpath
 
+from requests_toolbelt.multipart.encoder import MultipartEncoder
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -67,27 +69,26 @@ def makeWebhookResult(req):
             "source": "tqb-sparkbot"
         }
     
-    else:
+   else:
         #Get PERSON NAME
         #GOTO ROOM OF ADMIN
-        #SEND MESSAGE
-        return {
-	        "followupEvent": {
-		        "name": "custom_event",
-		        "data": {
-			        "Component": "Node MCU",
-			        "Number": "1",
-			        "UserId": "Varun Kamath"
-			        }
-		        },
-	        "lang" : "en",
-	        "sessionId": "7848dbb1-138f-492c-ab3e-2dd6e3cf235e"
-        }
+        #SEND MESSAGE\
+	ACCESS_TOKEN = 'NjNkNmM2Y2MtZDc5Zi00MjFhLWIwMzAtMDE3NDRmZmFiZjFiZmFiMDk0ZmQtMWQ2'
+        url = 'https://api.ciscospark.com/v1/messages'
+        headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN, 'Content-Type': 'application/json'}
+        data = {'toPersonEmail': 'varun.kamath@yahoo.com', 'text': 'TEST MESSAGE'}
+        resp = requests.post(url=url, data=data, headers=headers)
+	message_dict = json.loads(resp.text)
+    	message_dict['statuscode'] = str(resp.status_code)
+	
+	print(str(resp.status_code))
+	
+        return {}
 
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
+   port = int(os.getenv('PORT', 5000))
 
  #   print "Starting app on port %d" % port
 
-    app.run(debug=False, port=port, host='0.0.0.0')
+   app.run(debug=False, port=port, host='0.0.0.0')
