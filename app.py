@@ -23,12 +23,8 @@ def webhook():
     	print("Request:")
     	print(json.dumps(req, indent=4))
         
-        res = {
-            		"speech": req.get("result").get("action"),
-            		"displayText": req.get("result").get("action"),
-            		"source": "tqb-sparkbot"
-        	}
-    #	res = processRequest(req)
+        
+    	res = processRequest(req)
 
     	res = json.dumps(res, indent=4)
     # print(res)
@@ -76,7 +72,7 @@ def makeWebhookResult(req):
         	headers = {"Authorization": "Bearer " + Access_Token, "Content-Type": "application/json"}
         	data = {
 			"toPersonId": "M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4", 
-			"text": "Varun Kamath has requested for " + number + " " + components + "(s). Would you like to accept the request?"
+			"text": "Varun Kamath has requested for " #+ number + " " + components + "(s). Would you like to accept the request?"
 			}
         	resp = requests.post(url=url, data=data, headers=headers)
 		return {
