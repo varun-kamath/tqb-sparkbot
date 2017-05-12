@@ -5,6 +5,7 @@ import urllib
 import json
 import os
 import math
+import datetime
 
 from flask import Flask
 from flask import request
@@ -68,10 +69,12 @@ def makeWebhookResult(req):
         #Get PERSON NAME
         #GOTO ROOM OF ADMIN
         #SEND MESSAGE
-        ACCESS_TOKEN = 'M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4'
-        headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN}
-        data = {'roomId': 'Y2lzY29zcGFyazovL3VzL1JPT00vMDQ4NDMwNDUtMmYyMC0zYmZlLTlkY2QtMWZlYTg4MzQzYzVm', 'text': 'Hello StackOverflow'}
-        resp = requests.post(url='https://api.ciscospark.com/v1/messages', data=data, headers=headers)
+        now = datetime.datetime.now().strftime('%Y%m%d')
+        ACCESS_TOKEN = 'ed069640fcf348f283b221faad5853f6'
+        url = 'https://api.api.ai/v1/query?v=' + now
+        headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN, 'Content-Type': 'application/json'}
+        data = {'followupEvent': {'name': 'custom_event', 'data': {'UserId': 'Varun Kamath', 'Number': '1', 'Component': 'Node MCU'}}, 'sessionId': '1234567890'}
+        resp = requests.post(url=url, data=data, headers=headers)
         return {}
 
 
