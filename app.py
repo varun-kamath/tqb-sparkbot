@@ -52,7 +52,7 @@ def makeWebhookResult(req):
         elif stock[components] == 0:
             speech = "We are out of " + components + "(s). Please contact lab admin for further queries."
         elif int(number) <= stock[components]:
-            speech = "yes we have " + number + " " + components + "(s) . Should i register a request?" + sessionid
+            speech = "yes we have " + number + " " + components + "(s) . Should i register a request?"
         elif int(number) > stock[components]:
             speech = "we only have " + str(stock[components]) + " " + components + "(s) . Should i register a request for the same?"
     
@@ -74,7 +74,7 @@ def makeWebhookResult(req):
         ACCESS_TOKEN = 'ed069640fcf348f283b221faad5853f6'
         url = 'https://api.api.ai/v1/query?v=' + now
         headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN, 'Content-Type': 'application/json'}
-        data = {'followupEvent': {'name': 'custom_event', 'data': {'UserId': 'Varun Kamath', 'Number': '1', 'Component': 'Node MCU'}}, 'sessionId': '1234567890'}
+        data = {'followupEvent': {'name': 'custom_event', 'data': {'UserId': 'Varun Kamath', 'Number': '1', 'Component': 'Node MCU'}}, 'sessionId': '7848dbb1-138f-492c-ab3e-2dd6e3cf235e'}
         resp = requests.post(url=url, data=data, headers=headers)
         return {}
 
