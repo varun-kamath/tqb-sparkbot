@@ -65,15 +65,21 @@ def makeWebhookResult(req):
         	}
 	
     	else:
-		ACCESS_TOKEN = "NjNkNmM2Y2MtZDc5Zi00MjFhLWIwMzAtMDE3NDRmZmFiZjFiZmFiMDk0ZmQtMWQ2"
+		Access_Token = "NjNkNmM2Y2MtZDc5Zi00MjFhLWIwMzAtMDE3NDRmZmFiZjFiZmFiMDk0ZmQtMWQ2"
         	url = "https://api.ciscospark.com/v1/messages"
-        	headers = {"Authorization": "Bearer " + ACCESS_TOKEN, "Content-Type": "application/json"}
+        	headers = {"Authorization": "Bearer " + Access_Token, "Content-Type": "application/json"}
         	data = {
 			"toPersonId": "M2U2MmQ1N2ItMTgxNi00NjM3LWIyZmEtNmI3NjI5ZjQzMTNjYWM5Nzk4YTItMDE4", 
 			"text": "Varun Kamath has requested for " + number + " " + components + "(s). Would you like to accept the request?"
 			}
         	resp = requests.post(url=url, data=data, headers=headers)
-		return {}
+		return {
+			"speech": "test-test",
+            		"displayText": "test-test",
+            #"data": {"slack": slack_message, "facebook": facebook_message},
+            # "contextOut": [],
+            		"source": "tqb-sparkbot"
+			}
 
 
 if __name__ == '__main__':
