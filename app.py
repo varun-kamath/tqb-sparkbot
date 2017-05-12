@@ -25,7 +25,6 @@ def webhook():
         
         return {
             		"speech": req.get("result").get("action"),
-			"outcontext": "RequestAdmin",
             		"displayText": req.get("result").get("action"),
             		"source": "tqb-sparkbot"
         	}
