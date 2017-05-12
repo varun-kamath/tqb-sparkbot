@@ -22,7 +22,15 @@ def webhook():
 
     	print("Request:")
     	print(json.dumps(req, indent=4))
-
+        
+        return {
+            		"speech": req.get("result").get("action"),
+			"outcontext": "RequestAdmin"
+            		"displayText": speech,
+            #"data": {"slack": slack_message, "facebook": facebook_message},
+            # "contextOut": [],
+            		"source": "tqb-sparkbot"
+        	}
     	res = processRequest(req)
 
     	res = json.dumps(res, indent=4)
