@@ -66,17 +66,23 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "tqb-sparkbot"
         }
+    
     else:
         #Get PERSON NAME
         #GOTO ROOM OF ADMIN
         #SEND MESSAGE
-        now = datetime.datetime.now().strftime('%Y%m%d')
-        ACCESS_TOKEN = 'ed069640fcf348f283b221faad5853f6'
-        url = 'https://api.api.ai/v1/query?v=' + now
-        headers = {'Authorization': 'Bearer ' + ACCESS_TOKEN, 'Content-Type': 'application/json'}
-        data = {'followupEvent': {'name': 'custom_event', 'data': {'UserId': 'Varun Kamath', 'Number': '1', 'Component': 'Node MCU'}}, 'sessionId': '7848dbb1-138f-492c-ab3e-2dd6e3cf235e'}
-        resp = requests.post(url=url, data=data, headers=headers)
-        return {}
+        return {
+	        "event": {
+		        "name": "custom_event",
+		        "data": {
+			        "Component": "Node MCU",
+			        "Number": "1",
+			        "UserId": "Varun Kamath"
+			        }
+		        },
+	        "lang" : "en",
+	        "sessionId": "7848dbb1-138f-492c-ab3e-2dd6e3cf235e"
+        }
 
 
 if __name__ == '__main__':
